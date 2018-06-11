@@ -1,0 +1,4 @@
+cld2-cffi>=0.1.4
+numpy>=1.14.4
+pyrsistent>=0.14.2
+regex>=2018.6.6
