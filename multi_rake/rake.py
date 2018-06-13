@@ -15,6 +15,7 @@ class Rake:
         min_chars=3,
         max_words=3,
         min_freq=1,
+        language_code=None,
         lang_detect_threshold=50,
         max_words_unknown_lang=2,
         generated_stopwords_percentile=80,
@@ -30,10 +31,28 @@ class Rake:
         self.generated_stopwords_min_len = generated_stopwords_max_len
         self.generated_stopwords_min_count = generated_stopwords_min_freq
 
+        if language_code is not None and language_code not in STOPWORDS:
+            error_msg = (
+                'There are no built-in stopwords for {lang_code} language code!\n'  # noqa
+                'Possible solutions:\n'
+                '1. Check list of supported languages at https://github.com/vgrabovets/multi_rake\n'  # noqa
+                '2. Provide your own set of stopwords in stopwords argument\n'
+                '3. Leave arguments language_code and stopwords as None and '
+                'stopwords will be generated from provided text'.format(
+                    lang_code=language_code,
+                )
+            )
+            raise NotImplementedError(error_msg)
+
+        self.language_code = language_code
+
     def apply(self, text):
         text = text.lower()
 
-        language_code = detect_language(text, self.lang_detect_threshold)
+        if self.language_code is not None:
+            language_code = self.language_code
+        else:
+            language_code = detect_language(text, self.lang_detect_threshold)
 
         max_words = self.max_words
 

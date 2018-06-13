@@ -1,3 +1,5 @@
+import pytest
+
 from multi_rake import Rake
 
 
@@ -52,6 +54,16 @@ def test_rake():
         ('solving', 1.0),
     ]
     expected = _postprocess_result(expected)
+    assert result == expected
+
+    rake_en = Rake(
+        min_chars=3,
+        max_words=3,
+        min_freq=1,
+        language_code='en',
+    )
+    result = rake_en.apply(text_en)
+    result = _postprocess_result(result)
     assert result == expected
 
     text_esperanto = (
@@ -164,6 +176,45 @@ def test_rake():
     )
     result = rake_min_freq2.apply(text_starts_with_stopword)
     assert result == [('keywords', 1.0)]
+
+    with pytest.raises(NotImplementedError):
+        Rake(language_code='xxx')
+
+    rake_uk = Rake(
+        min_chars=3,
+        max_words=4,
+        min_freq=1,
+        language_code='uk',
+    )
+    text_en_uk = (
+        'Compatibility of systems of linear constraints над the set of '
+        'natural numbers. Criteria of compatibility of a system of linear '
+        'Diophantine equations, strict inequations, та nonstrict inequations '
+        'are considered. Upper bounds для components of a minimal set of '
+        'solutions та algorithms of construction of minimal generating sets '
+        'of solutions для всіх types of systems are given. Ці criteria та '
+        'the corresponding algorithms для constructing a minimal supporting '
+        'set of solutions може бути used в solving всіх the considered types '
+        'of systems та systems of mixed types.'
+    )
+    result = rake_uk.apply(text_en_uk)
+    result = _postprocess_result(result)
+    expected = [
+        ('minimal set of solutions', 15.6),
+        ('systems of mixed types', 15.6),
+        ('nonstrict inequations are considered', 15.0),
+        ('criteria of compatibility of', 13.7),
+        ('the corresponding algorithms', 9.0),
+        ('components of', 5.6),
+        ('strict inequations', 5.0),
+        ('upper bounds', 4.0),
+        ('criteria', 2.5),
+        ('constructing', 1.0),
+        ('used', 1.0),
+        ('solving', 1.0),
+    ]
+    expected = _postprocess_result(expected)
+    assert result == expected
 
 
 def _postprocess_result(result, round_digits=5):
