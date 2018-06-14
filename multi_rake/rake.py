@@ -51,7 +51,7 @@ class Rake:
         else:
             self.stopwords = STOPWORDS.get(language_code, set())
 
-    def apply(self, text):
+    def apply(self, text, text_for_stopwords=None):
         text = text.lower()
 
         max_words = self.max_words
@@ -66,7 +66,13 @@ class Rake:
                 stop_words = STOPWORDS[language_code]
 
             else:
-                stop_words = self._generate_stop_words(text)
+                if text_for_stopwords:
+                    text_for_stopwords = text_for_stopwords.lower()
+                    text_for_stopwords = ' '.join([text, text_for_stopwords])
+                else:
+                    text_for_stopwords = text
+
+                stop_words = self._generate_stop_words(text_for_stopwords)
 
                 if self.max_words_unknown_lang is not None:
                     max_words = self.max_words_unknown_lang

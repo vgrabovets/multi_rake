@@ -194,6 +194,38 @@ def test_rake():
     expected = _postprocess_result(expected)
     assert result == expected
 
+    text_for_stopwords = 'de en la kaj al' * 20
+    result = rake.apply(text_esperanto, text_for_stopwords)
+    result = _postprocess_result(result)
+    expected = [
+        ('vidpunktoj depende', 4.0),
+        ('sia kompreno', 4.0),
+        ('tiuj principoj', 4.0),
+        ('justaj elektoj', 4.0),
+        ('libera komerco', 4.0),
+        ('okcidenta mondo', 4.0),
+        ('ŝtatan religion', 4.0),
+        ('absolutan monarkion', 4.0),
+        ('didevena rajto', 4.0),
+        ('socia kontrakto', 4.0),
+        ('jura hegemonio', 4.0),
+        ('gazetara libereco', 3.5),
+        ('religia libereco', 3.5),
+        ('privata posedrajto', 3.5),
+        ('libereco', 1.5),
+        ('posedrajto', 1.5),
+        ('ideoj', 1.0),
+        ('egaleco', 1.0),
+        ('civitanrajtoj', 1.0),
+        ('klerismo', 1.0),
+        ('ekonomikistoj', 1.0),
+        ('reĝoj', 1.0),
+        ('vivo', 1.0),
+        ('laŭ', 1.0),
+    ]
+    expected = _postprocess_result(expected)
+    assert result == expected
+
     text_numbers = '123, 123, 123, 123'
     result = rake.apply(text_numbers)
     assert result == [('123', 0)]
