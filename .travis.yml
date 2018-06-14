@@ -1,0 +1,31 @@
+dist: trusty
+
+sudo: required
+
+language: python
+
+python: 3.6
+
+before_install:
+  - python --version
+
+install:
+  - travis_retry make install-ci
+
+before_script:
+  - pip freeze
+
+script:
+  - make test
+
+after_script:
+  - travis_retry pip list --outdated
+
+after_success:
+  - make lint
+
+cache:
+  pip: true
+
+notifications:
+  email: true
