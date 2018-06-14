@@ -16,6 +16,7 @@ class Rake:
         max_words=3,
         min_freq=1,
         language_code=None,
+        stopwords=None,
         lang_detect_threshold=50,
         max_words_unknown_lang=2,
         generated_stopwords_percentile=80,
@@ -44,26 +45,31 @@ class Rake:
             )
             raise NotImplementedError(error_msg)
 
-        self.language_code = language_code
+        elif stopwords is not None:
+            self.stopwords = stopwords
+
+        else:
+            self.stopwords = STOPWORDS.get(language_code, set())
 
     def apply(self, text):
         text = text.lower()
 
-        if self.language_code is not None:
-            language_code = self.language_code
+        max_words = self.max_words
+
+        if self.stopwords:
+            stop_words = self.stopwords
+
         else:
             language_code = detect_language(text, self.lang_detect_threshold)
 
-        max_words = self.max_words
+            if language_code is not None and language_code in STOPWORDS:
+                stop_words = STOPWORDS[language_code]
 
-        if language_code is not None and language_code in STOPWORDS:
-            stop_words = STOPWORDS[language_code]
+            else:
+                stop_words = self._generate_stop_words(text)
 
-        else:
-            stop_words = self._generate_stop_words(text)
-
-            if self.max_words_unknown_lang is not None:
-                max_words = self.max_words_unknown_lang
+                if self.max_words_unknown_lang is not None:
+                    max_words = self.max_words_unknown_lang
 
         sentence_list = split_sentences(text)
 

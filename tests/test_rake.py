@@ -66,6 +66,43 @@ def test_rake():
     result = _postprocess_result(result)
     assert result == expected
 
+    rake_with_stopwords = Rake(
+        min_chars=3,
+        max_words=3,
+        min_freq=1,
+        stopwords={'of', 'the', 'a', 'and'},
+        lang_detect_threshold=50,
+        max_words_unknown_lang=2,
+        generated_stopwords_percentile=80,
+        generated_stopwords_max_len=3,
+        generated_stopwords_min_freq=2,
+    )
+    result = rake_with_stopwords.apply(text_en)
+    result = _postprocess_result(result)
+    expected = [
+        ('linear constraints over', 9.0),
+        ('linear diophantine equations', 9.0),
+        ('minimal generating sets', 8.666666666666666),
+        ('minimal supporting set', 7.666666666666666),
+        ('systems are given', 7.5),
+        ('minimal set', 4.666666666666666),
+        ('natural numbers', 4.0),
+        ('strict inequations', 4.0),
+        ('considered types', 4.0),
+        ('mixed types', 4.0),
+        ('these criteria', 3.5),
+        ('set', 2.0),
+        ('systems', 1.5),
+        ('criteria', 1.5),
+        ('compatibility', 1.0),
+        ('system', 1.0),
+        ('solutions', 1.0),
+        ('algorithms', 1.0),
+        ('construction', 1.0),
+    ]
+    expected = _postprocess_result(expected)
+    assert result == expected
+
     text_esperanto = (
         'Liberalismo estas politika filozofio aŭ mondrigardo konstruita en '
         'ideoj de libereco kaj egaleco. Liberaluloj apogas larĝan aron de '
