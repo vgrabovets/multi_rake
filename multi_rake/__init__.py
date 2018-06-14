@@ -1,1 +1,1 @@
-from multi_rake.rake import Rake  # noqa
+from multi_rake.algorithm import Rake  # noqa
