@@ -7,7 +7,7 @@ requirements = Path(__file__).parent / 'requirements/core.txt'
 with requirements.open(mode='rt', encoding='utf-8') as fp:
     install_requires = [line.strip() for line in fp]
 
-readme = Path(__file__).parent / 'README.md'
+readme = Path(__file__).parent / 'README.rst'
 
 with readme.open(mode='rt', encoding='utf-8') as fp:
     readme_text = fp.read()

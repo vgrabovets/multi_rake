@@ -29,8 +29,8 @@ class Rake:
         self.lang_detect_threshold = lang_detect_threshold
         self.max_words_unknown_lang = max_words_unknown_lang
         self.generated_stopwords_percentile = generated_stopwords_percentile
-        self.generated_stopwords_min_len = generated_stopwords_max_len
-        self.generated_stopwords_min_count = generated_stopwords_min_freq
+        self.generated_stopwords_max_len = generated_stopwords_max_len
+        self.generated_stopwords_min_freq = generated_stopwords_min_freq
 
         if language_code is not None and language_code not in STOPWORDS:
             error_msg = (
@@ -118,11 +118,11 @@ class Rake:
             self.generated_stopwords_percentile,
         )
 
-        upper_bound = max(upper_bound, self.generated_stopwords_min_count)
+        upper_bound = max(upper_bound, self.generated_stopwords_min_freq)
 
         for word, count in word_counts:  # pragma: no branch
             if count >= upper_bound:
-                if len(word) <= self.generated_stopwords_min_len:
+                if len(word) <= self.generated_stopwords_max_len:
                     stop_words.add(word)
             else:
                 break
