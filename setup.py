@@ -12,11 +12,9 @@ readme = Path(__file__).parent / 'README.rst'
 with readme.open(mode='rt', encoding='utf-8') as fp:
     readme_text = fp.read()
 
-VERSION = '0.0.1'
-
 setup(
     name='multi_rake',
-    version='{version}'.format(version=VERSION),
+    version='0.0.1',
     description='Multilingual Rapid Keyword Extraction (RAKE)',
     long_description=readme_text,
     keywords=['nlp', 'keywords', 'rake'],
@@ -24,9 +22,6 @@ setup(
     author='Vitaliy Grabovets',
     author_email='v.grabovets@gmail.com',
     url='https://github.com/vgrabovets/multi_rake',
-    download_url='https://github.com/vgrabovets/multi_rake/archive/{version}.tar.gz'.format(  # noqa
-        version=VERSION,
-    ),
     packages=find_packages(include=['multi_rake']),
     python_requires='>=3.5.0',
     install_requires=install_requires,

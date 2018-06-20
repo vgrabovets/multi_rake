@@ -9,6 +9,12 @@ Features
 - 26 languages are currently available, for the rest - stopwords are generated from provided text
 - Just configure rake, plug in text and get keywords (see implementation details)
 
+Installation
+------------
+.. code-block:: bash
+
+    pip install multi-rake
+
 Examples
 --------
 English text, we don't specify explicitly language nor list of stopwords (built-in list is used).
@@ -80,6 +86,7 @@ There is no list of stopwords for this language, they will be generated from pro
 
     #  ('serĉis anstataŭigi absolutismon', 9.0)  # sought to replace absolutism
     #  ('filozofo john locke', 8.5),  # philosopher John Locke
+    #  ('locke argumentis', 4.5)  # Locke argues
     #  ('justaj elektoj', 4.0),  # fair elections
     #  ('libera komerco', 4.0),  # free trade
     #  ('okcidenta mondo', 4.0),  # western world
@@ -88,7 +95,6 @@ There is no list of stopwords for this language, they will be generated from pro
     #  ('didevena rajto', 4.0),  # Dominican Rights
     #  ('socia kontrakto', 4.0),  # social contract
     #  ('jura hegemonio', 4.0),  # legal hegemony
-    #  ('locke argumentis', 4.5)  # Locke argues
     #  ('mondrigardo konstruita', 4.0)  # worldview built
     #  ('vidpunktoj depende', 4.0),  # views based
     #  ('sia kompreno', 4.0),  # their understanding
@@ -207,6 +213,23 @@ During RAKE initialization only language code should be used.
 - sv - Swedish
 - tr - Turkish
 - uk - Ukrainian
+
+Development
+----------------------------
+Repository has configured linter, tests and coverage.
+
+Create new virtual environment in order to use it.
+
+.. code-block:: bash
+
+    virtualenv env
+    source env/bin/activate
+
+    make install-dev  # install dependencies
+
+    make lint  # run linter
+
+    make test  # run tests and coverage
 
 References
 ----------
