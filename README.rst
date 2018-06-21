@@ -1,5 +1,5 @@
-Multilingual Rapid Automatic Keyword Extraction (RAKE)
-======================================================
+Multilingual Rapid Automatic Keyword Extraction (RAKE) for Python
+=================================================================
 
 Features
 --------
