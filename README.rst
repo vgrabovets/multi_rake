@@ -21,6 +21,8 @@ English text, we don't specify explicitly language nor list of stopwords (built-
 
 .. code-block:: python
 
+    from multi_rake import Rake
+
     text_en = (
         'Compatibility of systems of linear constraints over the set of '
         'natural numbers. Criteria of compatibility of a system of linear '
