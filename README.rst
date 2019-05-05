@@ -1,6 +1,12 @@
 Multilingual Rapid Automatic Keyword Extraction (RAKE) for Python
 =================================================================
 
+.. image:: https://travis-ci.org/vgrabovets/multi_rake.svg?branch=master
+    :target: https://travis-ci.org/vgrabovets/multi_rake
+
+.. image:: https://img.shields.io/pypi/dm/multi_rake.svg
+    :target: https://img.shields.io/pypi/dm/multi_rake
+
 Features
 --------
 - Automatic keyword extraction from text written in any language
