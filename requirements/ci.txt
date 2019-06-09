@@ -1,6 +1,6 @@
 -r core.txt
 
-isort==4.2.15
+isort==4.3.20
 
 flake8==3.5.0
 flake8-blind-except==0.1.1
