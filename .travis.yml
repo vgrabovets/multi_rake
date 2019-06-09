@@ -4,15 +4,16 @@ sudo: required
 
 language: python
 
-python: 3.6.5
+python:
+- 3.6.5
 
 before_install:
-  - pip install --upgrade pip
-  - pip --version
+- pip install --upgrade pip
+- pip --version
 
 jobs:
   include:
-    - stage: lint and test
+  - stage: lint and test
     install:
       - travis_retry make install-ci
       - pip install codecov
@@ -21,8 +22,8 @@ jobs:
       - pip freeze
 
     script:
-      - make lint
-      - make test
-      - codecov
+    - make lint
+    - make test
+    - codecov
 
 cache: pip
