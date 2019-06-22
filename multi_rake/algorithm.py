@@ -45,9 +45,8 @@ class Rake:
             )
             raise NotImplementedError(error_msg)
 
-        elif stopwords is not None:
+        if stopwords is not None:
             self.stopwords = stopwords
-
         else:
             self.stopwords = STOPWORDS.get(language_code, set())
 

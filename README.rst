@@ -10,6 +10,10 @@ Multilingual Rapid Automatic Keyword Extraction (RAKE) for Python
 .. image:: https://codecov.io/gh/vgrabovets/multi_rake/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/vgrabovets/multi_rake
 
+.. image:: https://www.codefactor.io/repository/github/vgrabovets/multi_rake/badge
+   :target: https://www.codefactor.io/repository/github/vgrabovets/multi_rake
+   :alt: CodeFactor
+
 .. image:: https://api.dependabot.com/badges/status?host=github&repo=vgrabovets/multi_rake
     :target: https://dependabot.com
 
