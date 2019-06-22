@@ -155,9 +155,9 @@ class Rake:
 
         for phrase in phrases:
             if (
-                    phrase and
-                    len(phrase) >= self.min_chars and
-                    len(phrase.split()) <= max_words
+                    phrase
+                    and len(phrase) >= self.min_chars
+                    and len(phrase.split()) <= max_words
             ):
                 result.append(phrase)
 

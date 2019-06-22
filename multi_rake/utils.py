@@ -5,7 +5,7 @@ LETTERS_RE = regex.compile(r'\p{L}+')
 
 SENTENCE_DELIMITERS_RE = regex.compile(
     r'[\.,;:¡!¿\?…⋯‹›«»\\"“”\[\]\(\)⟨⟩}{&]'  # any punctuation sign or &
-    '|\s[-–~]+\s',  # or '-' between spaces
+    r'|\s[-–~]+\s',  # or '-' between spaces
     regex.VERBOSE,
 )
 
