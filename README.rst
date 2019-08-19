@@ -14,9 +14,6 @@ Multilingual Rapid Automatic Keyword Extraction (RAKE) for Python
    :target: https://www.codefactor.io/repository/github/vgrabovets/multi_rake
    :alt: CodeFactor
 
-.. image:: https://api.dependabot.com/badges/status?host=github&repo=vgrabovets/multi_rake
-    :target: https://dependabot.com
-
 Features
 --------
 - Automatic keyword extraction from text written in any language
@@ -238,11 +235,11 @@ Development
 ----------------------------
 Repository has configured linter, tests and coverage.
 
-Create new virtual environment in order to use it.
+Create new virtual environment inside `multi_rake` folder in order to use it.
 
 .. code-block:: bash
 
-    virtualenv env
+    python3 -m venv env
     source env/bin/activate
 
     make install-dev  # install dependencies
