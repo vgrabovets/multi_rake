@@ -20,7 +20,7 @@ setup(
     keywords=['nlp', 'keywords', 'rake', 'keywords extraction'],
     license='MIT',
     author='Vitaliy Grabovets',
-    author_email='vgithub@tryninja.io',
+    author_email='github@maildepot.net',
     url='https://github.com/vgrabovets/multi_rake',
     packages=find_packages(include=['multi_rake']),
     python_requires='>=3.5.0',

@@ -27,3 +27,10 @@ jobs:
     - codecov
 
 cache: pip
+
+notifications:
+  email:
+    recipients:
+      github@maildepot.net
+    on_success: never
+    on_failure: always

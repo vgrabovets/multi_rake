@@ -28,7 +28,11 @@ Installation
 
     pip install multi-rake
 
-If installation fails due to :code:`cld` error :code:`narrowing conversions`, than it can be installed with :code:`CFLAGS="-Wno-narrowing" pip install cld2-cffi` and than :code:`pip install multi-rake`
+If installation fails due to :code:`cld` error :code:`narrowing conversions`, than it can be installed with
+
+.. code-block:: bash
+
+	CFLAGS="-Wno-narrowing" pip install multi-rake
 
 Examples
 --------
