@@ -14,7 +14,7 @@ with readme.open(mode='rt', encoding='utf-8') as fp:
 
 setup(
     name='multi_rake',
-    version='0.0.1',
+    version='0.0.2',
     description='Multilingual Rapid Automatic Keyword Extraction (RAKE) for Python',  # noqa
     long_description=readme_text,
     keywords=['nlp', 'keywords', 'rake', 'keywords extraction'],
