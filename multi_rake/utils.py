@@ -13,8 +13,8 @@ SENTENCE_DELIMITERS_RE = regex.compile(
 def detect_language(text, proba_threshold):
     _, _, details = pycld2.detect(text)
 
-    language_code = details[0].language_code
-    probability = details[0].percent
+    language_code = details[0][1]
+    probability = details[0][2]
 
     if language_code != 'un' and probability > proba_threshold:
         return language_code
