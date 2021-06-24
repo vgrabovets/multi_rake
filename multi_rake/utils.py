@@ -1,4 +1,4 @@
-import cld2
+import pycld2
 import regex
 
 LETTERS_RE = regex.compile(r'\p{L}+')
@@ -11,7 +11,7 @@ SENTENCE_DELIMITERS_RE = regex.compile(
 
 
 def detect_language(text, proba_threshold):
-    _, _, details = cld2.detect(text)
+    _, _, details = pycld2.detect(text)
 
     language_code = details[0].language_code
     probability = details[0].percent
