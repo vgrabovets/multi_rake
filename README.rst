@@ -234,7 +234,7 @@ During RAKE initialization only language code should be used.
 - sv - Swedish
 - tr - Turkish
 - uk - Ukrainian
-
+- fa - Persian
 Development
 ----------------------------
 Repository has configured linter, tests and coverage.
