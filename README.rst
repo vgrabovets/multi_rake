@@ -215,6 +215,7 @@ During RAKE initialization only language code should be used.
 - el - Greek
 - en - English
 - es - Spanish
+- fa - Persian
 - fi - Finnish
 - fr - French
 - ga - Irish
@@ -234,7 +235,7 @@ During RAKE initialization only language code should be used.
 - sv - Swedish
 - tr - Turkish
 - uk - Ukrainian
-- fa - Persian
+
 Development
 ----------------------------
 Repository has configured linter, tests and coverage.
